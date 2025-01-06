@@ -43,6 +43,8 @@ class ConfirmProposalUseCase(
             // do nothing
         } catch (_: BiometricsCancelledException) {
             // do nothing
+        } catch (_: IllegalStateException) {
+            // do nothing
         }
     }
 }
