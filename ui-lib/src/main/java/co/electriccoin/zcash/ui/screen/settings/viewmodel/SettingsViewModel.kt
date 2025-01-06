@@ -16,6 +16,7 @@ import co.electriccoin.zcash.ui.common.model.KeystoneAccount
 import co.electriccoin.zcash.ui.common.model.WalletAccount
 import co.electriccoin.zcash.ui.common.model.ZashiAccount
 import co.electriccoin.zcash.ui.common.provider.GetVersionInfoProvider
+import co.electriccoin.zcash.ui.common.usecase.NavigateToAddressBookUseCase
 import co.electriccoin.zcash.ui.common.usecase.ObserveConfigurationUseCase
 import co.electriccoin.zcash.ui.common.usecase.ObserveIsFlexaAvailableUseCase
 import co.electriccoin.zcash.ui.common.usecase.ObserveSelectedWalletAccountUseCase
@@ -49,6 +50,7 @@ class SettingsViewModel(
     private val getVersionInfo: GetVersionInfoProvider,
     private val rescanBlockchain: RescanBlockchainUseCase,
     private val navigationRouter: NavigationRouter,
+    private val navigateToAddressBook: NavigateToAddressBookUseCase
 ) : ViewModel() {
     private val versionInfo by lazy { getVersionInfo() }
 
@@ -224,7 +226,10 @@ class SettingsViewModel(
 
     private fun onSendUsFeedbackClick() = navigationRouter.forward(SUPPORT)
 
-    private fun onAddressBookClick() = navigationRouter.forward(AddressBookArgs(AddressBookArgs.DEFAULT))
+    private fun onAddressBookClick() =
+        viewModelScope.launch {
+            navigateToAddressBook(AddressBookArgs.DEFAULT)
+        }
 
     private fun onWhatsNewClick() = navigationRouter.forward(WHATS_NEW)
 

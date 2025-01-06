@@ -18,6 +18,7 @@ import co.electriccoin.zcash.spackle.Twig
 import co.electriccoin.zcash.ui.BuildConfig
 import co.electriccoin.zcash.ui.NavigationRouter
 import co.electriccoin.zcash.ui.R
+import co.electriccoin.zcash.ui.common.model.SubmitResult
 import co.electriccoin.zcash.ui.common.model.TopAppBarSubTitleState
 import co.electriccoin.zcash.ui.common.provider.GetVersionInfoProvider
 import co.electriccoin.zcash.ui.common.provider.GetZcashCurrencyProvider
@@ -34,7 +35,6 @@ import co.electriccoin.zcash.ui.design.component.listitem.ZashiListItemState
 import co.electriccoin.zcash.ui.design.util.stringRes
 import co.electriccoin.zcash.ui.screen.integrations.model.IntegrationsState
 import co.electriccoin.zcash.ui.screen.send.model.RecipientAddressState
-import co.electriccoin.zcash.ui.screen.sendconfirmation.model.SubmitResult
 import com.flexa.core.Flexa
 import com.flexa.spend.Transaction
 import com.flexa.spend.buildSpend
